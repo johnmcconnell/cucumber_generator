@@ -1,13 +1,10 @@
 require_relative 'templator'
+require_relative 'steps_templator'
 
-class IndexSteps
-  include Templator
+class IndexSteps < StepsTemplator
 
-  attr_reader :generator, :user, :file
   def initialize(generator, user, file)
-    @generator = generator
-    @user = user
-    @file = file
+    super
   end
 
   def create
