@@ -1,6 +1,13 @@
 require_relative 'user'
+require_relative 'index_steps'
+require_relative 'new_steps'
+require_relative 'show_steps'
+require_relative 'delete_steps'
+require_relative 'edit_steps'
+require_relative 'templator'
 
 class FeatureGenerator < Rails::Generators::NamedBase
+  include Templator
   source_root File.expand_path('../templates', __FILE__)
 
   ALL_ACTIONS = %w(index new show edit delete)
@@ -11,7 +18,7 @@ class FeatureGenerator < Rails::Generators::NamedBase
   def feature
     validate
     @user = User.new self, options[:user]
-    create_steps
+    create_steps_file
     actions.each do |action|
       @action = action
       create_feature(table_name, action)
@@ -33,57 +40,32 @@ class FeatureGenerator < Rails::Generators::NamedBase
       "features/#{name}/#{action}.feature"
   end
 
-  def create_steps
-    create_file steps_file_path
+  def create_steps_file
+    template File.join('step_definitions', 'blank_steps_file.rb'),
+      steps_file_path
   end
 
   def steps_file_path
     "features/step_definitions/#{file_name}_steps.rb"
   end
 
-  def inject_steps(opts = {})
-    inject_into_file steps_file_path, opts do
-      yield
-    end
-  end
-
   def create_index_steps(name)
-    inject_steps(after: '') do
-      <<-'RUBY'
-      puts "Hello World"
-      RUBY
-    end
+    IndexSteps.new(self, @user, steps_file_path).create
   end
 
   def create_new_steps(name)
-    inject_steps(after: '') do
-      <<-'RUBY'
-      puts "Hello World"
-      RUBY
-    end
+    NewSteps.new(self, @user, steps_file_path).create
   end
 
   def create_edit_steps(name)
-    inject_steps(after: '') do
-      <<-'RUBY'
-      puts "Hello World"
-      RUBY
-    end
+    EditSteps.new(self, @user, steps_file_path).create
   end
 
   def create_show_steps(name)
-    inject_steps(after: '') do
-      <<-'RUBY'
-      puts "Hello World"
-      RUBY
-    end
+    ShowSteps.new(self, @user, steps_file_path).create
   end
 
   def create_delete_steps(name)
-    inject_steps(after: '') do
-      <<-'RUBY'
-      puts "Hello World"
-      RUBY
-    end
+    DeleteSteps.new(self, @user, steps_file_path).create
   end
 end
