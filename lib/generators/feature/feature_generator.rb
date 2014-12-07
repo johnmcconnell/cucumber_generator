@@ -22,7 +22,7 @@ class FeatureGenerator < Rails::Generators::NamedBase
     actions.each do |action|
       @action = action
       create_feature(table_name, action)
-      method("create_#{action}_steps").call(file_name)
+      create_steps(action)
     end
   end
 
@@ -49,23 +49,9 @@ class FeatureGenerator < Rails::Generators::NamedBase
     "features/step_definitions/#{file_name}_steps.rb"
   end
 
-  def create_index_steps(name)
-    IndexSteps.new(self, @user, steps_file_path).create
-  end
-
-  def create_new_steps(name)
-    NewSteps.new(self, @user, steps_file_path).create
-  end
-
-  def create_edit_steps(name)
-    EditSteps.new(self, @user, steps_file_path).create
-  end
-
-  def create_show_steps(name)
-    ShowSteps.new(self, @user, steps_file_path).create
-  end
-
-  def create_delete_steps(name)
-    DeleteSteps.new(self, @user, steps_file_path).create
+  def create_steps(action)
+    Object.const_get("#{action.capitalize}Steps").new(
+      self, @user, steps_file_path
+    ).create
   end
 end
