@@ -25,5 +25,9 @@ class EditSteps
     generator.insert_into_file file, after: "### WHEN ###\n\n" do
       render File.join('step_definitions', 'edit_when_steps.rb')
     end
+
+    generator.insert_into_file file, after: "### THEN ###\n\n" do
+      render File.join('step_definitions', 'edit_then_steps.rb')
+    end
   end
 end
