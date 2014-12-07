@@ -1,6 +1,6 @@
 require_relative 'steps_templator'
 
-class NewSteps < StepsTemplator
+class DeleteSteps < StepsTemplator
   def initialize(generator, user, file)
     super
   end
