@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = CucumberGenerator::VERSION
   s.authors     = ["John McConnell"]
   s.email       = ["johnnyillinois@gmail.com"]
-  s.homepage    = "git"
+  s.homepage    = "https://github.com/johnmcconnell/cucumber_generator"
   s.summary     = "Summary of CucumberGenerator."
   s.description = "Description of CucumberGenerator."
   s.license     = "MIT"
