@@ -2,7 +2,7 @@ Feature: As a user I would like to edit
   a model_with_login
 
   Background:
-Given I am signed in
+    Given I am signed in
 
   @Happy
   Scenario: I edit the model_with_login
