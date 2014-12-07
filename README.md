@@ -22,5 +22,16 @@ rails g feature Model # runs the builders for show, index, new, edit, delete
 rails g feature Model show index # runs the builder for show, index
 ```
 
+## Installation
+
+add to your gemfile
+
+```
+group :development do
+  gem 'cucumber_generator', git: 'git@github.com:johnmcconnell/cucumber_generator.git'
+end
+```
+
 ## Legacy from bundler?
+
 This project rocks and uses MIT-LICENSE.
