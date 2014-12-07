@@ -1,6 +1,6 @@
-## CucumberGenerator
+# CucumberGenerator
 
-# Examples
+## Examples
 
 ```
 rails g feature Model
@@ -22,5 +22,5 @@ rails g feature Model # runs the builders for show, index, new, edit, delete
 rails g feature Model show index # runs the builder for show, index
 ```
 
-# Legacy from bundler?
+## Legacy from bundler?
 This project rocks and uses MIT-LICENSE.
