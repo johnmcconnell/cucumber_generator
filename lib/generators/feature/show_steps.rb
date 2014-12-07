@@ -25,5 +25,9 @@ class ShowSteps
     generator.insert_into_file file, after: "### GIVEN ###\n\n" do
       render File.join('step_definitions', 'show_given_steps.rb')
     end
+
+    generator.insert_into_file file, after: "### THEN ###\n\n" do
+      render File.join('step_definitions', 'show_given_steps.rb')
+    end
   end
 end
