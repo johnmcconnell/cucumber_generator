@@ -4,7 +4,6 @@ Feature: As a user I would like to view
   Background:
 Given I am signed in
 
-
   Scenario: I am deleting the model_with_login
     Given I am on the model_with_logins page
     When I destroy one model_with_login

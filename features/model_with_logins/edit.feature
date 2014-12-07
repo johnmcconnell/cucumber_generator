@@ -4,7 +4,6 @@ Feature: As a user I would like to edit
   Background:
 Given I am signed in
 
-
   @Happy
   Scenario: I edit the model_with_login
     Given I am on the model_with_login page
