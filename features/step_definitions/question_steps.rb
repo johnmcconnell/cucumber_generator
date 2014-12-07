@@ -43,3 +43,16 @@ When(/^I enter new question info$/) do
 end
 
 ### THEN ###
+
+Then(/^I should see the new question info$/) do
+  pending
+end
+
+Then(/^I should see questions content$/) do
+  pending
+end
+
+Then(/^I should be on the questions page$/) do
+  expect(current_path).to eq(questions_path)
+end
+

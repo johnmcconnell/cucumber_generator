@@ -1,8 +1,0 @@
-Description:
-    Explain the generator
-
-Example:
-    rails generate cucumber_resource Thing
-
-    This will create:
-        what/will/it/create

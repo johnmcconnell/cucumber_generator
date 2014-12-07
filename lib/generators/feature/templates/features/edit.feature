@@ -18,5 +18,5 @@ Feature: As a user I would like to edit
     When I click "Edit"
     And I enter invalid edit <%= file_name %> info
     And I click "Save"
-    Then I should see edited <%= file_name %> info
+    Then I should see invalid <%= file_name %> input message
 

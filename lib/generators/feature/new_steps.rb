@@ -25,5 +25,9 @@ class NewSteps
     generator.insert_into_file file, after: "### WHEN ###\n\n" do
       render File.join('step_definitions', 'new_when_steps.rb')
     end
+
+    generator.insert_into_file file, after: "### THEN ###\n\n" do
+      render File.join('step_definitions', 'new_then_steps.rb')
+    end
   end
 end

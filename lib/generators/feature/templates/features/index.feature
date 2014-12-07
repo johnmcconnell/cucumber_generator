@@ -6,4 +6,4 @@ Feature: As a user I would like to view
 <%- end -%>
   Scenario: I am viewing the <%= table_name %> page
     Given I am on the <%= table_name %> page
-    Then I should see my <%= table_name %> content
+    Then I should see <%= table_name %> content

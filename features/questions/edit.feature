@@ -15,5 +15,5 @@ Feature: As a user I would like to edit
     When I click "Edit"
     And I enter invalid edit question info
     And I click "Save"
-    Then I should see edited question info
+    Then I should see invalid question input message
 
