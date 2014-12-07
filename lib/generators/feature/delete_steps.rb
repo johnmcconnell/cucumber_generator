@@ -1,26 +1,12 @@
-require_relative 'templator'
+require_relative 'steps_templator'
 
-class DeleteSteps
-  include Templator
-
-  attr_reader :generator, :user, :file
+class NewSteps < StepsTemplator
   def initialize(generator, user, file)
-    @generator = generator
-    @user = user
-    @file = file
+    super
   end
 
   def create
-    create_steps
-  end
-
-  def create_steps
-    generator.insert_into_file file, after: "### WHEN ###\n\n" do
-      render File.join('step_definitions', 'delete_when_steps.rb')
-    end
-
-    generator.insert_into_file file, after: "### THEN ###\n\n" do
-      render File.join('step_definitions', 'delete_then_steps.rb')
-    end
+    create_step(:when, 'delete_when_steps.rb')
+    create_step(:then, 'delete_then_steps.rb')
   end
 end

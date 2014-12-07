@@ -1,33 +1,13 @@
-require_relative 'templator'
+require_relative 'steps_templator'
 
-class NewSteps
-  include Templator
-
-  attr_reader :generator, :user, :file
+class NewSteps < StepsTemplator
   def initialize(generator, user, file)
-    @generator = generator
-    @user = user
-    @file = file
+    super
   end
 
   def create
-    create_methods
-    create_steps
-  end
-
-  def create_methods
-    generator.prepend_to_file file do
-      render File.join('step_definitions', 'new_methods.rb')
-    end
-  end
-
-  def create_steps
-    generator.insert_into_file file, after: "### WHEN ###\n\n" do
-      render File.join('step_definitions', 'new_when_steps.rb')
-    end
-
-    generator.insert_into_file file, after: "### THEN ###\n\n" do
-      render File.join('step_definitions', 'new_then_steps.rb')
-    end
+    create_methods('new_methods.rb')
+    create_step(:when, 'new_when_steps.rb')
+    create_step(:then, 'new_then_steps.rb')
   end
 end
