@@ -5,7 +5,7 @@ Feature: As a user I would like to create
 <%= @user.background_steps(:new) %>
 <%- end -%>
   @Happy
-  Scenario: I create the <%= class_name %>
+  Scenario: I create the <%= file_name %>
     Given I am on the <%= table_name %> page
     When I click "New <%= class_name %>"
     And I enter new <%= file_name %> info
@@ -13,10 +13,10 @@ Feature: As a user I would like to create
     Then I should see the new <%= file_name %> info
 
   @Sad
-  Scenario: I create the <%= class_name %>
+  Scenario: I create the <%= file_name %>
     Given I am on the <%= table_name %> page
     When I click "New <%= class_name %>"
     And I enter invalid new <%= file_name %> info
     And I click "Save"
-    Then I should see <%= file_name %> errors
+    Then I should see invalid <%= file_name %> input message
 

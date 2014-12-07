@@ -2,7 +2,7 @@ Feature: As a user I would like to edit
   a question
 
   @Happy
-  Scenario: I edit the Question
+  Scenario: I edit the question
     Given I am on the question page
     When I click "Edit"
     And I enter edit question info
@@ -10,7 +10,7 @@ Feature: As a user I would like to edit
     Then I should see edited question info
 
   @Sad
-  Scenario: I edit the Question
+  Scenario: I edit the question
     Given I am on the question page
     When I click "Edit"
     And I enter invalid edit question info
