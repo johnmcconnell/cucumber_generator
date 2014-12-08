@@ -28,7 +28,7 @@ add to your gemfile
 
 ```
 group :development do
-  gem 'cucumber_generator', git: 'https://github.com/johnmcconnell/cucumber_generator.git'
+  gem 'cucumber_generator'
 end
 ```
 
