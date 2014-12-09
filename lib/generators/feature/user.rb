@@ -10,8 +10,11 @@ class User
   end
 
   def background_steps(action = nil)
-    @action = action
-    render File.join('features', 'users', 'background_steps.feature')
+    if action == :index || action == :delete || action == :edit
+      render File.join('features', 'users', "background_steps_with_models.feature")
+    else
+      render File.join('features', 'users', "background_steps.feature")
+    end
   end
 
   def set?
