@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cucumber_generator (0.0.2)
+    cucumber_generator (0.0.3)
       rails (~> 4.1.0)
 
 GEM
