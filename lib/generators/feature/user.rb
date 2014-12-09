@@ -10,10 +10,10 @@ class User
   end
 
   def background_steps(action = nil)
-    if action == :index || action == :delete || action == :edit
-      render File.join('features', 'users', "background_steps_with_models.feature")
-    else
+    if action == :new
       render File.join('features', 'users', "background_steps.feature")
+    else
+      render File.join('features', 'users', "background_steps_with_models.feature")
     end
   end
 
